@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.motion-image {
+  animation: gentleImageMotion 12s ease-in-out infinite alternate;
+  transform-origin: center;
+}
+
+.motion-delay-1 {
+  animation-delay: -3s;
+}
+
+.motion-delay-2 {
+  animation-delay: -6s;
+}
+
+.motion-gallery {
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.motion-track {
+  display: flex;
+  width: max-content;
+  gap: 1.5rem;
+  animation: galleryMove 28s linear infinite;
+}
+
+.motion-card {
+  width: min(46vw, 260px);
+  height: 320px;
+  flex: 0 0 auto;
+  border-radius: 1.25rem;
+  object-fit: cover;
+  box-shadow: 0 18px 45px rgb(15 23 42 / 14%);
+}
+
+@keyframes gentleImageMotion {
+  from {
+    transform: scale(1) translateY(0);
+  }
+
+  to {
+    transform: scale(1.08) translateY(-6px);
+  }
+}
+
+@keyframes galleryMove {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-50% - 0.75rem));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-image,
+  .motion-track,
+  [style*="galleryMove"] {
+    animation: none;
+  }
+}
