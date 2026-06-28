@@ -4,6 +4,7 @@
 /node_modules
 /.pnp
 .pnp.*
+.pnp.js
 .yarn/*
 !.yarn/patches
 !.yarn/plugins
@@ -31,8 +32,9 @@ yarn-error.log*
 .pnpm-debug.log*
 .next-dev.*.log
 
-# env files (can opt-in for committing if needed)
+# env files
 .env*
+.env*.local
 
 # vercel
 .vercel
