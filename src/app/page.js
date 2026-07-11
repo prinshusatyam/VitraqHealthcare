@@ -1,12 +1,11 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/footer";
+import HeroSlider from "@/components/HeroSlider";
 
 export default function Home() {
   const heroImages = [
     { src: "/g1.jpg", alt: "Medical training session" },
     { src: "/session.jpeg", alt: "Healthcare training workshop" },
-    { src: "/training.jpeg", alt: "Hands-on healthcare training" },
-    { src: "/training-session.jpg", alt: "Live medical training" },
     { src: "/equipment.jpeg", alt: "Medical training equipment" },
     { src: "/consumables.jpeg", alt: "Medical consumables" },
     { src: "/g1.jpeg", alt: "Healthcare supplies and training" },
@@ -31,22 +30,12 @@ export default function Home() {
       <section className="px-6 pt-10 pb-16">
         <div className="max-w-6xl mx-auto rounded-3xl overflow-hidden relative">
 
-          <div className="grid grid-cols-2 md:grid-cols-5 grid-rows-3 md:grid-rows-2 h-[560px] md:h-[520px]">
-            {heroImages.map((image, index) => (
-              <img
-                key={image.src}
-                src={image.src}
-                alt={image.alt}
-                className={`h-full w-full object-cover ${
-                  index > 5 ? "hidden md:block" : ""
-                }`}
-              />
-            ))}
-          </div>
+        <HeroSlider images={heroImages} />
 
-          <div className="absolute inset-0 bg-black/40 flex items-center px-10">
-            <h1 className="text-3xl md:text-5xl font-bold leading-tight text-white">
-              Saving Lives Through Knowledge, Training & <br />
+          <div className="pointer-events-none absolute inset-x-0 bottom-16 md:bottom-20 z-20 flex items-end px-6 md:px-10">
+            <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold leading-tight text-white drop-shadow-lg">
+              Saving Lives Through Knowledge, Training &{" "}
+              <br className="hidden sm:block" />
               Trusted Healthcare Supplies.
             </h1>
           </div>
